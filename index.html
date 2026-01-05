@@ -436,6 +436,22 @@
 
     <!-- Dark Mode Logic -->
     <script>
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
         const themeToggleBtn = document.getElementById('theme-toggle');
         
         // เช็คค่าจาก Local Storage หรือ System Preference
