@@ -48,9 +48,22 @@
             display: flex;
             width: max-content;
             animation: scroll 45s linear infinite;
+            will-change: transform;
         }
         .marquee-container:hover .animate-marquee {
             animation-play-state: paused;
+        }
+
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
         }
     </style>
 </head>
@@ -111,14 +124,15 @@
     <section id="home" class="pt-40 pb-24 gradient-bg text-white">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center">
             <div class="md:w-3/5 text-center md:text-left">
+                <h2 class="text-xl font-light mb-2 tracking-widest uppercase">Portfolio </h2>
                 <h1 class="text-4xl md:text-6xl font-bold mb-6">นายณัฐพงษ์ ดีน้อย</h1>
                 <p class="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
                     ผู้สมัครตำแหน่งนักวิชาการคอมพิวเตอร์ปฏิบัติการ <br>
                     มุ่งเน้นการใช้นวัตกรรมดิจิทัลเพื่อยกระดับการบริหารท้องถิ่นให้ทันสมัย
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#vision" class="border-2 border-white/50 px-8 py-3 rounded-xl font-semibold hover:bg-white/10 transition">อ่านวิสัยทัศน์</a>
                     <a href="#projects" class="bg-white text-blue-900 px-8 py-3 rounded-xl font-semibold shadow-lg hover:bg-blue-50 transition">ดูผลงานเด่น</a>
+                    <a href="#vision" class="border-2 border-white/50 px-8 py-3 rounded-xl font-semibold hover:bg-white/10 transition">อ่านวิสัยทัศน์</a>
                 </div>
             </div>
             <div class="md:w-2/5 mt-12 md:mt-0 flex justify-center relative">
@@ -149,13 +163,12 @@
             
             <!-- Tech Stack Marquee -->
             <div class="mb-16">
-                <h3 class="text-center text-gray-500 mb-8 uppercase tracking-widest text-sm font-semibold">Technical Stack & Frameworks</h3>
+                <h3 class="text-center text-gray-500 dark:text-gray-400 mb-8 uppercase tracking-widest text-sm font-semibold">Technical Stack & Frameworks</h3>
                 <div class="marquee-container relative overflow-hidden py-4">
-                    <!-- แก้ไข: ลบ space-x-12 ออกจาก parent -->
                     <div class="animate-marquee flex items-center">
                         
-                        <!-- Tech Items (Set 1) : เพิ่ม mx-6 ให้ทุกตัว -->
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
+                        <!-- Tech Items -->
+                         <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
                             <i class="fab fa-html5 text-5xl text-orange-500"></i>
                             <span class="text-xs font-bold text-gray-400">HTML5</span>
                         </div>
@@ -171,13 +184,9 @@
                             <i class="fab fa-react text-5xl text-cyan-400"></i>
                             <span class="text-xs font-bold text-gray-400">React</span>
                         </div>
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
+                         <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
                             <i class="fab fa-vuejs text-5xl text-emerald-500"></i>
                             <span class="text-xs font-bold text-gray-400">Vue.js</span>
-                        </div>
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
-                            <i class="fab fa-angular text-5xl text-red-600"></i>
-                            <span class="text-xs font-bold text-gray-400">Angular</span>
                         </div>
                         <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
                             <i class="fab fa-php text-5xl text-indigo-400"></i>
@@ -192,10 +201,6 @@
                             <span class="text-xs font-bold text-gray-400">MySQL</span>
                         </div>
                         <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
-                            <i class="fas fa-server text-5xl text-gray-600"></i>
-                            <span class="text-xs font-bold text-gray-400">SQL Server</span>
-                        </div>
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
                             <i class="fab fa-wordpress text-5xl text-blue-800"></i>
                             <span class="text-xs font-bold text-gray-400">WordPress</span>
                         </div>
@@ -203,9 +208,8 @@
                             <i class="fab fa-laravel text-5xl text-red-500"></i>
                             <span class="text-xs font-bold text-gray-400">Laravel</span>
                         </div>
-
-                        <!-- Tech Items (Duplicate Set for Seamless Loop) : เพิ่ม mx-6 ให้ทุกตัว -->
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
+                        <!-- Duplicate Loop for smoothness -->
+                         <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
                             <i class="fab fa-html5 text-5xl text-orange-500"></i>
                             <span class="text-xs font-bold text-gray-400">HTML5</span>
                         </div>
@@ -217,41 +221,17 @@
                             <i class="fab fa-js text-5xl text-yellow-500"></i>
                             <span class="text-xs font-bold text-gray-400">JavaScript</span>
                         </div>
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
+                         <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
                             <i class="fab fa-react text-5xl text-cyan-400"></i>
                             <span class="text-xs font-bold text-gray-400">React</span>
                         </div>
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
+                         <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
                             <i class="fab fa-vuejs text-5xl text-emerald-500"></i>
                             <span class="text-xs font-bold text-gray-400">Vue.js</span>
                         </div>
                         <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
-                            <i class="fab fa-angular text-5xl text-red-600"></i>
-                            <span class="text-xs font-bold text-gray-400">Angular</span>
-                        </div>
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
                             <i class="fab fa-php text-5xl text-indigo-400"></i>
                             <span class="text-xs font-bold text-gray-400">PHP</span>
-                        </div>
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
-                            <i class="fab fa-python text-5xl text-blue-400"></i>
-                            <span class="text-xs font-bold text-gray-400">Python</span>
-                        </div>
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
-                            <i class="fas fa-database text-5xl text-blue-500"></i>
-                            <span class="text-xs font-bold text-gray-400">MySQL</span>
-                        </div>
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
-                            <i class="fas fa-server text-5xl text-gray-600"></i>
-                            <span class="text-xs font-bold text-gray-400">SQL Server</span>
-                        </div>
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
-                            <i class="fab fa-wordpress text-5xl text-blue-800"></i>
-                            <span class="text-xs font-bold text-gray-400">WordPress</span>
-                        </div>
-                        <div class="mx-6 flex flex-col items-center space-y-2 grayscale hover:grayscale-0 dark:grayscale-0 transition duration-300">
-                            <i class="fab fa-laravel text-5xl text-red-500"></i>
-                            <span class="text-xs font-bold text-gray-400">Laravel</span>
                         </div>
                     </div>
                 </div>
@@ -434,9 +414,9 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Dark Mode Logic -->
+    <!-- Scripts for Mobile Menu and Dark Mode -->
     <script>
-
+        // --- Mobile Menu Logic ---
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -451,7 +431,8 @@
                 mobileMenu.classList.remove('open');
             });
         });
-        
+
+        // --- Dark Mode Logic ---
         const themeToggleBtn = document.getElementById('theme-toggle');
         
         // เช็คค่าจาก Local Storage หรือ System Preference
