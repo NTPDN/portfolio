@@ -1,40 +1,17 @@
 <!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | นักวิชาการคอมพิวเตอร์ปฏิบัติการ</title>
-    
-    <!-- Tailwind CSS with Config -->
+    <title>นักวิชาการคอมพิวเตอร์ปฏิบัติการ</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class', // เปิดใช้งาน Dark Mode แบบ Manual Toggle
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Prompt', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Prompt', sans-serif; transition: background-color 0.3s, color 0.3s; }
-        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); }
-        /* Dark mode gradient adjustment */
-        .dark .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); }
-        
+        body { font-family: 'Prompt', sans-serif; scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
         .skill-bar { height: 8px; border-radius: 4px; background: #e5e7eb; position: relative; overflow: hidden; }
-        .dark .skill-bar { background: #334155; }
-        
-        .skill-progress { height: 100%; border-radius: 4px; background: #2563eb; transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        .dark .skill-progress { background: #60a5fa; }
-
+        .skill-progress { height: 100%; border-radius: 4px; background: #3b82f6; transition: width 1s ease-in-out; }
         .img-placeholder { background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #9ca3af; }
         
         /* Marquee Animation */
@@ -45,271 +22,228 @@
         .animate-marquee {
             display: flex;
             width: max-content;
-            animation: scroll 40s linear infinite;
+            animation: scroll 45s linear infinite; /* Adjusted duration for extra items */
         }
         .marquee-container:hover .animate-marquee {
             animation-play-state: paused;
         }
-
-        /* Timeline CSS */
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: #bfdbfe;
-            transform: translateX(-50%);
-        }
-        .dark .timeline-line { background-color: #1e293b; }
-        
-        @media (max-width: 768px) {
-            .timeline-line { left: 20px; }
-        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200">
+<body class="bg-gray-50 text-gray-800">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm shadow-sm border-b border-slate-100 dark:border-slate-800 transition-colors duration-300">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="text-lg md:text-xl font-bold text-blue-900 dark:text-blue-400 flex items-center gap-2">
-                <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <div class="leading-tight">
-                    <div class="text-sm text-slate-500 dark:text-slate-400 font-normal">แฟ้มสะสมผลงาน</div>
-                    <div>Computer <span class="text-blue-600 dark:text-blue-400">Officer</span></div>
-                </div>
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-blue-900 flex items-center">
+                <i class="fas fa-laptop-code mr-2"></i>
+                <span>Portfolio</span>
             </div>
-            
-            <div class="flex items-center gap-6">
-                <div class="hidden md:flex space-x-6 text-sm font-medium text-slate-600 dark:text-slate-300">
-                    <a href="#home" class="hover:text-blue-600 dark:hover:text-blue-400 transition">หน้าหลัก</a>
-                    <a href="#vision" class="hover:text-blue-600 dark:hover:text-blue-400 transition">วิสัยทัศน์</a>
-                    <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition">ประสบการณ์</a>
-                    <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition">ทักษะ</a>
-                    <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 transition">ผลงาน</a>
-                    <a href="#certificates" class="hover:text-blue-600 dark:hover:text-blue-400 transition">เกียรติบัตร</a>
-                </div>
-
-                <!-- Theme Toggle Button -->
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-yellow-400 transition-colors focus:outline-none" title="สลับโหมดกลางวัน/กลางคืน">
-                    <i class="fas fa-moon dark:hidden text-xl"></i>
-                    <i class="fas fa-sun hidden dark:inline text-xl"></i>
-                </button>
-
-                <a href="#contact" class="hidden md:inline-block bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 dark:hover:bg-blue-500 transition shadow-lg shadow-blue-200 dark:shadow-none">
-                    ติดต่อสอบถาม
-                </a>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#home" class="hover:text-blue-600 transition">หน้าหลัก</a>
+                <a href="#vision" class="hover:text-blue-600 transition">วิสัยทัศน์</a>
+                <a href="#skills" class="hover:text-blue-600 transition">ทักษะ</a>
+                <a href="#projects" class="hover:text-blue-600 transition">ผลงาน</a>
+                <a href="#certificates" class="hover:text-blue-600 transition">เกียรติบัตร</a>
             </div>
+            <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm hover:bg-blue-700 transition">ติดต่อสอบถาม</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 gradient-bg text-white relative overflow-hidden transition-colors duration-500">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
-        
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
-            <div class="md:w-3/5 text-center md:text-left mb-12 md:mb-0">
-                <div class="inline-block px-3 py-1 bg-white/10 rounded-full text-blue-100 text-xs font-medium mb-4 border border-white/20">
-                    <i class="fas fa-user-check mr-1"></i> พร้อมเริ่มงานทันที
-                </div>
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-                    นายณัฐพงษ์ <br>ดีน้อย
-                </h1>
-                <h2 class="text-xl md:text-2xl font-light text-blue-100 mb-6">
-                    ผู้สมัครตำแหน่ง <span class="font-semibold text-white border-b-2 border-yellow-400">นักวิชาการคอมพิวเตอร์ปฏิบัติการ</span>
-                </h2>
-                <p class="text-lg opacity-90 mb-8 leading-relaxed max-w-xl mx-auto md:mx-0 font-light text-slate-100">
-                    "มุ่งมั่นนำเทคโนโลยีและนวัตกรรมดิจิทัล มาประยุกต์ใช้เพื่อยกระดับประสิทธิภาพการทำงานขององค์กร และการให้บริการประชาชนอย่างยั่งยืน"
+    <section id="home" class="pt-40 pb-24 gradient-bg text-white">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-3/5 text-center md:text-left">
+                <h2 class="text-xl font-light mb-2 tracking-widest uppercase">Portfolio </h2>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">นายณัฐพงษ์ ดีน้อย</h1>
+                <p class="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
+                    ผู้สมัครตำแหน่งนักวิชาการคอมพิวเตอร์ปฏิบัติการ <br>
+                    มุ่งเน้นการใช้นวัตกรรมดิจิทัลเพื่อยกระดับการบริหารท้องถิ่นให้ทันสมัย
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#" class="bg-white text-blue-700 px-8 py-3 rounded-xl font-bold shadow-xl hover:bg-slate-50 hover:-translate-y-1 transition flex items-center justify-center gap-2">
-                        <i class="fas fa-file-download"></i> ดาวน์โหลด Resume
-                    </a>
-                    <a href="#projects" class="px-8 py-3 rounded-xl font-semibold border-2 border-white/30 hover:bg-white/10 transition flex items-center justify-center text-white">
-                        ดูผลงานเด่น
-                    </a>
+                    <a href="#projects" class="bg-white text-blue-900 px-8 py-3 rounded-xl font-semibold shadow-lg hover:bg-blue-50 transition">ดูผลงานเด่น</a>
+                    <a href="#vision" class="border-2 border-white/50 px-8 py-3 rounded-xl font-semibold hover:bg-white/10 transition">อ่านวิสัยทัศน์</a>
                 </div>
             </div>
-            
-            <div class="md:w-2/5 flex justify-center relative">
-                <div class="absolute -inset-4 bg-white/20 rounded-full blur-2xl animate-pulse"></div>
-                <div class="w-64 h-64 md:w-80 md:h-80 bg-white dark:bg-slate-800 rounded-3xl p-2 rotate-3 shadow-2xl relative z-10 transition-colors duration-300">
-                    <div class="w-full h-full bg-slate-200 dark:bg-slate-700 rounded-2xl overflow-hidden relative group">
-                        <!-- Placeholder Image -->
-                         <img src="https://placehold.co/400x400/1e3a8a/FFFFFF?text=Photo" alt="Profile" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <!-- Badge -->
-                    <div class="absolute -bottom-6 -right-6 bg-yellow-400 text-blue-900 w-24 h-24 rounded-full flex flex-col items-center justify-center shadow-lg border-4 border-white dark:border-slate-800 font-bold rotate-[-3deg]">
-                        <span class="text-2xl">5+</span>
-                        <span class="text-[10px] uppercase tracking-wide">Years Exp.</span>
-                    </div>
+            <div class="md:w-2/5 mt-12 md:mt-0 flex justify-center relative">
+                <div class="w-72 h-72 md:w-80 md:h-80 bg-white/20 rounded-3xl border-4 border-white/30 overflow-hidden shadow-2xl rotate-3 backdrop-blur-sm">
+                    <img src="images/profile.jpg" alt="สมชาย มุ่งมั่นระบบ" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<i class=\'fas fa-user-tie text-9xl text-white/50 m-auto\'></i>'; this.parentElement.classList.add('flex');">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Vision Section -->
-    <section id="vision" class="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
+    <section id="vision" class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-10 text-slate-800 dark:text-white flex items-center justify-center gap-3">
-                <i class="fas fa-bullseye text-blue-600 dark:text-blue-400"></i> วิสัยทัศน์ (Vision)
-            </h2>
-            <div class="relative bg-blue-50 dark:bg-slate-800 p-8 md:p-12 rounded-3xl transition-colors duration-300">
-                <i class="fas fa-quote-left text-4xl text-blue-200 dark:text-slate-600 absolute top-8 left-8"></i>
-                <p class="text-xl md:text-2xl font-medium text-slate-700 dark:text-slate-300 leading-relaxed italic relative z-10">
-                    "พัฒนาระบบราชการให้ทันสมัยด้วยเทคโนโลยี (Digital Transformation) ลดขั้นตอน ลดกระดาษ และสร้างความปลอดภัยทางไซเบอร์ เพื่อประโยชน์สูงสุดของประชาชน"
-                </p>
-                <div class="mt-8 flex justify-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400"></span>
-                    <span class="w-2 h-2 rounded-full bg-blue-300 dark:bg-blue-600"></span>
-                    <span class="w-2 h-2 rounded-full bg-blue-300 dark:bg-blue-600"></span>
-                </div>
+            <div class="inline-block p-3 bg-blue-100 rounded-2xl mb-6">
+                <i class="fas fa-lightbulb text-3xl text-blue-600"></i>
             </div>
-        </div>
-    </section>
-
-    <!-- Experience & Education -->
-    <section id="experience" class="py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center text-slate-800 dark:text-white">เส้นทางประสบการณ์และการศึกษา</h2>
-            
-            <div class="relative">
-                <!-- Vertical Line -->
-                <div class="timeline-line"></div>
-
-                <!-- Item 1 (Work) -->
-                <div class="flex flex-col md:flex-row items-center mb-12 relative">
-                    <div class="md:w-1/2 md:pr-8 text-center md:text-right order-2 md:order-1 mt-4 md:mt-0">
-                        <h3 class="text-xl font-bold text-blue-900 dark:text-blue-300">นักวิชาการคอมพิวเตอร์ (ลูกจ้างชั่วคราว)</h3>
-                        <p class="text-slate-600 dark:text-slate-400 font-medium">สำนักงานเทศบาลตำบล ก.</p>
-                        <p class="text-sm text-slate-500 dark:text-slate-500 mt-2">ดูแลระบบเครือข่าย ซ่อมบำรุงอุปกรณ์คอมพิวเตอร์ และดูแลเว็บไซต์หน่วยงาน</p>
-                    </div>
-                    <div class="w-10 h-10 bg-blue-600 rounded-full border-4 border-white dark:border-slate-900 shadow-lg flex items-center justify-center z-10 order-1 md:order-2">
-                        <i class="fas fa-briefcase text-white text-xs"></i>
-                    </div>
-                    <div class="md:w-1/2 md:pl-8 text-center md:text-left order-3">
-                        <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-bold">2566 - ปัจจุบัน</span>
-                    </div>
-                </div>
-
-                <!-- Item 2 (Education) -->
-                <div class="flex flex-col md:flex-row items-center mb-12 relative">
-                    <div class="md:w-1/2 md:pr-8 text-center md:text-right order-2 md:order-1 mt-4 md:mt-0">
-                        <span class="inline-block px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-sm font-bold">2562 - 2565</span>
-                    </div>
-                    <div class="w-10 h-10 bg-white dark:bg-slate-800 border-4 border-blue-600 dark:border-blue-500 rounded-full shadow-lg flex items-center justify-center z-10 order-1 md:order-2">
-                        <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-400 text-xs"></i>
-                    </div>
-                    <div class="md:w-1/2 md:pl-8 text-center md:text-left order-3">
-                        <h3 class="text-xl font-bold text-slate-800 dark:text-white">วิทยาศาสตรบัณฑิต (วิทยาการคอมพิวเตอร์)</h3>
-                        <p class="text-slate-600 dark:text-slate-400 font-medium">มหาวิทยาลัยราชภัฏ...</p>
-                        <p class="text-sm text-slate-500 dark:text-slate-500 mt-2">เกียรตินิยมอันดับ 2 (GPA 3.50)</p>
-                    </div>
-                </div>
-
-                <!-- Item 3 (Activity/Internship) -->
-                <div class="flex flex-col md:flex-row items-center relative">
-                    <div class="md:w-1/2 md:pr-8 text-center md:text-right order-2 md:order-1 mt-4 md:mt-0">
-                        <h3 class="text-xl font-bold text-slate-800 dark:text-white">นักศึกษาฝึกงาน (IT Support)</h3>
-                        <p class="text-slate-600 dark:text-slate-400 font-medium">โรงพยาบาลศูนย์...</p>
-                        <p class="text-sm text-slate-500 dark:text-slate-500 mt-2">ช่วยเหลือเจ้าหน้าที่ในการแก้ไขปัญหาคอมพิวเตอร์เบื้องต้น</p>
-                    </div>
-                    <div class="w-10 h-10 bg-white dark:bg-slate-800 border-4 border-slate-300 dark:border-slate-600 rounded-full shadow-lg flex items-center justify-center z-10 order-1 md:order-2">
-                        <i class="fas fa-id-badge text-slate-400 dark:text-slate-300 text-xs"></i>
-                    </div>
-                    <div class="md:w-1/2 md:pl-8 text-center md:text-left order-3">
-                         <span class="inline-block px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-sm font-bold">2565</span>
-                    </div>
-                </div>
-            </div>
+            <h2 class="text-3xl font-bold mb-8 text-blue-900">วิสัยทัศน์ในการทำงาน</h2>
+            <p class="text-xl italic text-gray-600 leading-relaxed">
+                "ข้าพเจ้ามีความตั้งใจที่จะนำความรู้ด้านเทคโนโลยีสารสนเทศมาพัฒนาการทำงานขององค์กรปกครองส่วนท้องถิ่น ให้มีความคล่องตัว โปร่งใส และประชาชนสามารถเข้าถึงบริการภาครัฐได้อย่างสะดวกรวดเร็ว ผ่านระบบดิจิทัลที่มั่นคงปลอดภัย"
+            </p>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-white dark:bg-slate-900 overflow-hidden transition-colors duration-300">
+    <section id="skills" class="py-20 bg-gray-50 overflow-hidden">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center text-slate-800 dark:text-white">ทักษะและความเชี่ยวชาญ (Competency)</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center text-blue-900">ทักษะและความเชี่ยวชาญ</h2>
             
             <!-- Tech Stack Marquee -->
             <div class="mb-16">
-                <p class="text-center text-slate-500 dark:text-slate-400 mb-6 text-sm">เครื่องมือและเทคโนโลยีที่ใช้งานได้</p>
-                <div class="marquee-container relative overflow-hidden py-6 bg-slate-50 dark:bg-slate-800 border-y border-slate-100 dark:border-slate-700 transition-colors duration-300">
-                    <div class="animate-marquee flex items-center space-x-16">
-                        <!-- Icons List -->
-                        <i class="fab fa-html5 text-5xl text-orange-500 hover:scale-110 transition"></i>
-                        <i class="fab fa-css3-alt text-5xl text-blue-500 hover:scale-110 transition"></i>
-                        <i class="fab fa-js text-5xl text-yellow-400 hover:scale-110 transition"></i>
-                        <i class="fab fa-react text-5xl text-cyan-400 hover:scale-110 transition"></i>
-                        <i class="fab fa-php text-5xl text-indigo-500 hover:scale-110 transition"></i>
-                        <i class="fab fa-python text-5xl text-blue-400 hover:scale-110 transition"></i>
-                        <i class="fas fa-database text-5xl text-slate-600 dark:text-slate-400 hover:scale-110 transition"></i>
-                        <i class="fab fa-ubuntu text-5xl text-orange-600 hover:scale-110 transition"></i>
-                        <i class="fab fa-wordpress text-5xl text-blue-800 hover:scale-110 transition"></i>
-                        <!-- Duplicate for loop -->
-                        <i class="fab fa-html5 text-5xl text-orange-500"></i>
-                        <i class="fab fa-css3-alt text-5xl text-blue-500"></i>
-                        <i class="fab fa-js text-5xl text-yellow-400"></i>
-                        <i class="fab fa-react text-5xl text-cyan-400"></i>
-                        <i class="fab fa-php text-5xl text-indigo-500"></i>
+                <h3 class="text-center text-gray-500 mb-8 uppercase tracking-widest text-sm font-semibold">Technical Stack & Frameworks</h3>
+                <div class="marquee-container relative overflow-hidden py-4">
+                    <div class="animate-marquee flex items-center space-x-12">
+                        <!-- Tech Items (Set 1) -->
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-html5 text-5xl text-orange-500"></i>
+                            <span class="text-xs font-bold text-gray-400">HTML5</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-css3-alt text-5xl text-blue-500"></i>
+                            <span class="text-xs font-bold text-gray-400">CSS3</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-js text-5xl text-yellow-500"></i>
+                            <span class="text-xs font-bold text-gray-400">JavaScript</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-react text-5xl text-cyan-400"></i>
+                            <span class="text-xs font-bold text-gray-400">React</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-vuejs text-5xl text-emerald-500"></i>
+                            <span class="text-xs font-bold text-gray-400">Vue.js</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-angular text-5xl text-red-600"></i>
+                            <span class="text-xs font-bold text-gray-400">Angular</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-php text-5xl text-indigo-400"></i>
+                            <span class="text-xs font-bold text-gray-400">PHP</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-python text-5xl text-blue-400"></i>
+                            <span class="text-xs font-bold text-gray-400">Python</span>
+                        </div>
+                        <!-- Added MySQL -->
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fas fa-database text-5xl text-blue-500"></i>
+                            <span class="text-xs font-bold text-gray-400">MySQL</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fas fa-server text-5xl text-gray-600"></i>
+                            <span class="text-xs font-bold text-gray-400">SQL Server</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-wordpress text-5xl text-blue-800"></i>
+                            <span class="text-xs font-bold text-gray-400">WordPress</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-laravel text-5xl text-red-500"></i>
+                            <span class="text-xs font-bold text-gray-400">Laravel</span>
+                        </div>
+
+                        <!-- Tech Items (Duplicate for seamless loop) -->
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-html5 text-5xl text-orange-500"></i>
+                            <span class="text-xs font-bold text-gray-400">HTML5</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-css3-alt text-5xl text-blue-500"></i>
+                            <span class="text-xs font-bold text-gray-400">CSS3</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-js text-5xl text-yellow-500"></i>
+                            <span class="text-xs font-bold text-gray-400">JavaScript</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-react text-5xl text-cyan-400"></i>
+                            <span class="text-xs font-bold text-gray-400">React</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-vuejs text-5xl text-emerald-500"></i>
+                            <span class="text-xs font-bold text-gray-400">Vue.js</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-angular text-5xl text-red-600"></i>
+                            <span class="text-xs font-bold text-gray-400">Angular</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-php text-5xl text-indigo-400"></i>
+                            <span class="text-xs font-bold text-gray-400">PHP</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-python text-5xl text-blue-400"></i>
+                            <span class="text-xs font-bold text-gray-400">Python</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fas fa-database text-5xl text-blue-500"></i>
+                            <span class="text-xs font-bold text-gray-400">MySQL</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fas fa-server text-5xl text-gray-600"></i>
+                            <span class="text-xs font-bold text-gray-400">SQL Server</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-wordpress text-5xl text-blue-800"></i>
+                            <span class="text-xs font-bold text-gray-400">WordPress</span>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2 grayscale hover:grayscale-0 transition duration-300">
+                            <i class="fab fa-laravel text-5xl text-red-500"></i>
+                            <span class="text-xs font-bold text-gray-400">Laravel</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Knowledge & Soft Skills -->
             <div class="grid md:grid-cols-2 gap-12">
-                <!-- Hard Skills -->
-                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 transition-colors duration-300">
-                    <h3 class="text-xl font-bold mb-6 flex items-center text-slate-800 dark:text-white border-b dark:border-slate-700 pb-2">
-                        <i class="fas fa-tools mr-2 text-blue-600 dark:text-blue-400"></i> ทักษะทางเทคนิค
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-microchip mr-2 text-blue-600"></i> ความชำนาญการ
                     </h3>
-                    <div class="space-y-6">
+                    <div class="space-y-4">
                         <div>
-                            <div class="flex justify-between mb-2 text-sm font-bold text-slate-700 dark:text-slate-300"><span>Hardware Maintenance</span><span>95%</span></div>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                            <div class="flex justify-between mb-1 text-sm font-medium text-gray-700"><span>Computer Hardware & Maintenance</span><span>90%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-2 text-sm font-bold text-slate-700 dark:text-slate-300"><span>Network & Server Config</span><span>85%</span></div>
+                            <div class="flex justify-between mb-1 text-sm font-medium text-gray-700"><span>Network Configuration (LAN/WLAN)</span><span>85%</span></div>
                             <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-2 text-sm font-bold text-slate-700 dark:text-slate-300"><span>Web Development</span><span>80%</span></div>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
-                        </div>
-                         <div>
-                            <div class="flex justify-between mb-2 text-sm font-bold text-slate-700 dark:text-slate-300"><span>Cybersecurity Basics</span><span>75%</span></div>
+                            <div class="flex justify-between mb-1 text-sm font-medium text-gray-700"><span>Cybersecurity Policy</span><span>75%</span></div>
                             <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Knowledge Cards -->
-                <div>
-                     <h3 class="text-xl font-bold mb-6 flex items-center text-slate-800 dark:text-white border-b dark:border-slate-700 pb-2">
-                        <i class="fas fa-book mr-2 text-blue-600 dark:text-blue-400"></i> ความรู้เฉพาะตำแหน่ง
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-gavel mr-2 text-blue-600"></i> ความรู้และกฎหมาย
                     </h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-blue-50 dark:bg-slate-800 p-4 rounded-xl hover:bg-blue-100 dark:hover:bg-slate-700 transition duration-300">
-                            <i class="fas fa-shield-halved text-2xl text-blue-600 dark:text-blue-400 mb-2"></i>
-                            <h4 class="font-bold text-slate-800 dark:text-white">PDPA</h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">กฎหมายคุ้มครองข้อมูลส่วนบุคคล</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-blue-300 transition">
+                            <i class="fas fa-shield-alt text-blue-500 mb-2"></i>
+                            <h4 class="font-bold text-sm">PDPA & Privacy</h4>
+                            <p class="text-[10px] text-gray-500 mt-1 leading-tight">ความเข้าใจในการจัดเก็บและคุ้มครองข้อมูลส่วนบุคคลตามกฎหมาย</p>
                         </div>
-                        <div class="bg-blue-50 dark:bg-slate-800 p-4 rounded-xl hover:bg-blue-100 dark:hover:bg-slate-700 transition duration-300">
-                            <i class="fas fa-server text-2xl text-blue-600 dark:text-blue-400 mb-2"></i>
-                            <h4 class="font-bold text-slate-800 dark:text-white">DGA Standards</h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">มาตรฐานรัฐบาลดิจิทัล</p>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-blue-300 transition">
+                            <i class="fas fa-university text-blue-500 mb-2"></i>
+                            <h4 class="font-bold text-sm">Digital Gov.</h4>
+                            <p class="text-[10px] text-gray-500 mt-1 leading-tight">ความรู้ด้านมาตรฐานรัฐบาลดิจิทัลของประเทศไทย (DGA)</p>
                         </div>
-                        <div class="bg-blue-50 dark:bg-slate-800 p-4 rounded-xl hover:bg-blue-100 dark:hover:bg-slate-700 transition duration-300">
-                            <i class="fas fa-file-contract text-2xl text-blue-600 dark:text-blue-400 mb-2"></i>
-                            <h4 class="font-bold text-slate-800 dark:text-white">TOR & จัดซื้อ</h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">การเขียนขอบเขตงานพัสดุคอมฯ</p>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-blue-300 transition">
+                            <i class="fas fa-headset text-blue-500 mb-2"></i>
+                            <h4 class="font-bold text-sm">Service Mind</h4>
+                            <p class="text-[10px] text-gray-500 mt-1 leading-tight">ทัศนคติที่ดีในการบริการและแก้ปัญหาให้ผู้ใช้งานในองค์กร</p>
                         </div>
-                        <div class="bg-blue-50 dark:bg-slate-800 p-4 rounded-xl hover:bg-blue-100 dark:hover:bg-slate-700 transition duration-300">
-                            <i class="fas fa-users-gear text-2xl text-blue-600 dark:text-blue-400 mb-2"></i>
-                            <h4 class="font-bold text-slate-800 dark:text-white">IT Support</h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">การบริการและแก้ไขปัญหาผู้ใช้</p>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-blue-300 transition">
+                            <i class="fas fa-images text-blue-500 mb-2"></i>
+                            <h4 class="font-bold text-sm">Graphic Design</h4>
+                            <p class="text-[10px] text-gray-500 mt-1 leading-tight">การผลิตสื่อประชาสัมพันธ์ผ่าน Canva และเครื่องมือดิจิทัล</p>
                         </div>
                     </div>
                 </div>
@@ -318,51 +252,46 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+    <section id="projects" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-4 text-center text-slate-800 dark:text-white">ผลงานและนวัตกรรม (Projects)</h2>
-            <p class="text-center text-slate-500 dark:text-slate-400 mb-12">ผลงานเด่นที่ได้พัฒนาเพื่อเพิ่มประสิทธิภาพงานราชการ</p>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 dark:border-slate-700 group">
-                    <div class="h-64 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
-                        <img src="https://placehold.co/600x400/1e40af/ffffff?text=Network+Diagram" alt="Smart Office" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">ใช้งานจริง</div>
+            <h2 class="text-3xl font-bold mb-4 text-center text-blue-900">ผลงานเด่นที่เคยปฏิบัติ</h2>
+            <p class="text-center text-gray-500 mb-12">ประสบการณ์จากการทำงานจริงและการทำโครงการพิเศษ</p>
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Project Card 1 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:-translate-y-2 transition duration-300">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                        <img src="images/project-network.jpg" alt="Smart Office Network" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder'); this.parentElement.innerHTML='<i class=\'fas fa-network-wired text-7xl text-gray-300\'></i>';">
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">Completed</div>
                     </div>
                     <div class="p-8">
-                        <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-white">โครงการ Smart Office Network</h3>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4 text-sm leading-relaxed">
-                            ออกแบบและติดตั้งระบบ VLAN เพื่อแยกวงเครือข่ายระหว่างเจ้าหน้าที่และผู้มาติดต่อราชการ ป้องกันข้อมูลรั่วไหลและเพิ่มความเสถียรของระบบ
-                        </p>
-                        <div class="flex gap-2 mb-6">
-                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">Mikrotik</span>
-                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">VLAN</span>
+                        <h3 class="text-xl font-bold mb-3">โครงการ Smart Office Network</h3>
+                        <p class="text-gray-600 mb-4">ปรับปรุงระบบโครงข่ายสื่อสารภายในสำนักงาน โดยการติดตั้ง VLAN เพื่อแยกการใช้งานระหว่างพนักงานและผู้มาติดต่อ เพื่อความปลอดภัยสูงสุด</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-blue-50 text-blue-600 text-[10px] px-2 py-1 rounded">Mikrotik</span>
+                            <span class="bg-blue-50 text-blue-600 text-[10px] px-2 py-1 rounded">VLAN Config</span>
+                            <span class="bg-blue-50 text-blue-600 text-[10px] px-2 py-1 rounded">Security</span>
                         </div>
-                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center text-green-600 dark:text-green-400 font-medium text-sm">
-                            <i class="fas fa-check-circle mr-2"></i> ลดปัญหาเน็ตช้าได้ 40%
+                        <div class="border-t pt-4">
+                            <p class="text-sm font-semibold text-green-600"><i class="fas fa-check-circle mr-1"></i> ผลลัพธ์: ระบบมีความเสถียรขึ้น 40% และลดปัญหาการบุกรุกข้อมูล</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Project 2 -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 dark:border-slate-700 group">
-                    <div class="h-64 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
-                        <img src="https://placehold.co/600x400/2563eb/ffffff?text=Web+App+UI" alt="E-Service" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">ใช้งานจริง</div>
+                <!-- Project Card 2 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:-translate-y-2 transition duration-300">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                        <img src="images/project-webapp.jpg" alt="Inventory System" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder'); this.parentElement.innerHTML='<i class=\'fas fa-database text-7xl text-gray-300\'></i>';">
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">Completed</div>
                     </div>
                     <div class="p-8">
-                        <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-white">ระบบจองห้องประชุมออนไลน์ (E-Booking)</h3>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4 text-sm leading-relaxed">
-                            พัฒนาเว็บแอปพลิเคชันสำหรับจองห้องประชุมภายในสำนักงาน ลดการใช้กระดาษและตรวจสอบตารางการใช้งานได้แบบ Real-time
-                        </p>
-                        <div class="flex gap-2 mb-6">
-                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">PHP</span>
-                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">MySQL</span>
-                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">Line Notify</span>
+                        <h3 class="text-xl font-bold mb-3">ระบบบริหารจัดการพัสดุดิจิทัล</h3>
+                        <p class="text-gray-600 mb-4">พัฒนา Web Application เพื่อใช้ในการเบิกจ่ายพัสดุภายในหน่วยงาน แทนระบบกระดาษเดิม เพื่อความรวดเร็วและตรวจสอบได้</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-blue-50 text-blue-600 text-[10px] px-2 py-1 rounded">PHP / MySQL</span>
+                            <span class="bg-blue-50 text-blue-600 text-[10px] px-2 py-1 rounded">Web App</span>
+                            <span class="bg-blue-50 text-blue-600 text-[10px] px-2 py-1 rounded">UX/UI</span>
                         </div>
-                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center text-green-600 dark:text-green-400 font-medium text-sm">
-                            <i class="fas fa-check-circle mr-2"></i> ลดการใช้กระดาษ 100%
+                        <div class="border-t pt-4">
+                            <p class="text-sm font-semibold text-green-600"><i class="fas fa-check-circle mr-1"></i> ผลลัพธ์: ลดเวลาการอนุมัติลง 50% และประหยัดกระดาษได้ 100%</p>
                         </div>
                     </div>
                 </div>
@@ -370,130 +299,84 @@
         </div>
     </section>
 
-    <!-- Activity Gallery -->
-    <section id="gallery" class="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center text-slate-800 dark:text-white">ประมวลภาพกิจกรรม (Activities)</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Activity 1 -->
-                <div class="relative group overflow-hidden rounded-xl h-48 cursor-pointer">
-                    <img src="https://placehold.co/400x300/e2e8f0/64748b?text=Maintenance" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <span class="text-white text-sm font-medium">ซ่อมบำรุงคอมพิวเตอร์</span>
+            <h2 class="text-3xl font-bold mb-12 text-center text-blue-900">เกียรติบัตรและความภาคภูมิใจ</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cert Item 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition border-l-4 border-blue-600 flex items-start space-x-4">
+                    <i class="fas fa-stamp text-blue-600 text-3xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-800">หลักสูตรทักษะเอไอระดับพื้นฐาน (AI Basics)</h4>
+                        <p class="text-sm text-gray-500">บริษัท ไมโครซอฟท์ (ประเทศไทย) จำกัด</p>
+                        <p class="text-xs text-blue-600 mt-2">พ.ศ. 2568</p>
                     </div>
                 </div>
-                <!-- Activity 2 -->
-                <div class="relative group overflow-hidden rounded-xl h-48 cursor-pointer">
-                    <img src="https://placehold.co/400x300/e2e8f0/64748b?text=Training" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <span class="text-white text-sm font-medium">วิทยากรอบรม IT</span>
+                <!-- Cert Item 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition border-l-4 border-blue-600 flex items-start space-x-4">
+                    <i class="fas fa-award text-blue-600 text-3xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Digital Literacy: ความฉลาดทางดิจิทัล (Digital Intelligence)</h4>
+                        <p class="text-sm text-gray-500">TDGA</p>
+                        <p class="text-xs text-blue-600 mt-2">พ.ศ. 2568</p>
                     </div>
                 </div>
-                <!-- Activity 3 -->
-                <div class="relative group overflow-hidden rounded-xl h-48 cursor-pointer">
-                    <img src="https://placehold.co/400x300/e2e8f0/64748b?text=Meeting" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <span class="text-white text-sm font-medium">ประชุมวางแผนระบบ</span>
+                <!-- Cert Item 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition border-l-4 border-blue-600 flex items-start space-x-4">
+                    <i class="fas fa-user-shield text-blue-600 text-3xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-800">ISO/IEC 29110 : Awareness and Requirements </h4>
+                        <p class="text-sm text-gray-500">มาตรฐานสากลด้านความปลอดภัย</p>
+                        <p class="text-xs text-blue-600 mt-2">พ.ศ. 2568</p>
                     </div>
                 </div>
-                <!-- Activity 4 -->
-                <div class="relative group overflow-hidden rounded-xl h-48 cursor-pointer">
-                    <img src="https://placehold.co/400x300/e2e8f0/64748b?text=CSR" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <span class="text-white text-sm font-medium">กิจกรรมจิตอาสา</span>
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition border-l-4 border-blue-600 flex items-start space-x-4">
+                    <i class="fas fa-award text-blue-600 text-3xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-800">เรียนรู้ Prompt Engineering สู่ความเป็นผู้เชี่ยวชาญ AI</h4>
+                        <p class="text-sm text-gray-500">TDGA </p>
+                        <p class="text-xs text-blue-600 mt-2">พ.ศ. 2568</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Certificates -->
-    <section id="certificates" class="py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4">
-             <h2 class="text-3xl font-bold mb-12 text-center text-slate-800 dark:text-white">เกียรติบัตรและการอบรม</h2>
-             <div class="grid md:grid-cols-3 gap-6">
-                 <!-- Cert 1 -->
-                 <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm flex gap-4 items-start transition-colors duration-300">
-                     <i class="fas fa-certificate text-3xl text-yellow-500"></i>
-                     <div>
-                         <h4 class="font-bold text-slate-800 dark:text-white">AI Basics</h4>
-                         <p class="text-xs text-slate-500 dark:text-slate-400">Microsoft Thailand</p>
-                         <p class="text-xs text-blue-600 dark:text-blue-400 mt-1 font-medium">2568</p>
-                     </div>
-                 </div>
-                 <!-- Cert 2 -->
-                 <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm flex gap-4 items-start transition-colors duration-300">
-                    <i class="fas fa-certificate text-3xl text-yellow-500"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-800 dark:text-white">Digital Literacy</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">TDGA (สพร.)</p>
-                        <p class="text-xs text-blue-600 dark:text-blue-400 mt-1 font-medium">2568</p>
-                    </div>
-                </div>
-                 <!-- Cert 3 -->
-                 <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm flex gap-4 items-start transition-colors duration-300">
-                    <i class="fas fa-shield-alt text-3xl text-yellow-500"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-800 dark:text-white">Cybersecurity Awareness</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">NCSA (สกมช.)</p>
-                        <p class="text-xs text-blue-600 dark:text-blue-400 mt-1 font-medium">2567</p>
-                    </div>
-                </div>
-             </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="bg-gradient-to-r from-blue-900 to-blue-800 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-12 text-center text-white shadow-2xl relative overflow-hidden">
+            <div class="bg-blue-900 rounded-[3rem] p-12 text-white text-center relative overflow-hidden">
                 <div class="relative z-10">
-                    <h2 class="text-3xl font-bold mb-8">ช่องทางการติดต่อ</h2>
-                    <div class="flex flex-col md:flex-row justify-center gap-6">
-                        <a href="tel:0932213501" class="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 px-6 py-4 rounded-xl backdrop-blur transition">
-                            <i class="fas fa-phone-alt"></i> 093-221-3501
-                        </a>
-                        <a href="mailto:natthaphong.18oct@gmail.com" class="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 px-6 py-4 rounded-xl backdrop-blur transition">
-                            <i class="fas fa-envelope"></i> ส่งอีเมลหาฉัน
-                        </a>
-                        <a href="#" class="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 px-6 py-4 rounded-xl backdrop-blur transition">
-                            <i class="fab fa-line text-xl"></i> nattapong.1998
-                        </a>
+                    <h2 class="text-3xl font-bold mb-6">ช่องทางการติดต่อ</h2>
+                    <p class="text-blue-100 mb-10 max-w-xl mx-auto">หากท่านต้องการข้อมูลเพิ่มเติม สามารถติดต่อข้าพเจ้าได้ผ่านช่องทางด้านล่างนี้</p>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div class="bg-white/10 px-6 py-4 rounded-2xl backdrop-blur-sm flex items-center space-x-3">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>093-221-3501</span>
+                        </div>
+                        <div class="bg-white/10 px-6 py-4 rounded-2xl backdrop-blur-sm flex items-center space-x-3">
+                            <i class="fas fa-envelope"></i>
+                            <span>natthaphong.18oct@gmail.com</span>
+                        </div>
+                        <div class="bg-white/10 px-6 py-4 rounded-2xl backdrop-blur-sm flex items-center space-x-3">
+                            <i class="fab fa-line"></i>
+                            <span>nattapong.1998</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Decoration -->
-                <div class="absolute -top-20 -right-20 w-64 h-64 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
-                <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-cyan-400 rounded-full blur-3xl opacity-20"></div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-8 text-center text-slate-500 dark:text-slate-500 text-sm transition-colors duration-300">
-        <p>&copy; 2026 ณัฐพงษ์ ดีน้อย - Portfolio นักวิชาการคอมพิวเตอร์</p>
+    <footer class="py-8 bg-gray-50 text-gray-400 text-center border-t">
+        <p class="text-sm">&copy; 2025 ณัฐพงษ์ ดีน้อย | นักวิชาการคอมพิวเตอร์ </p>
     </footer>
 
-    <!-- Theme Toggle Script -->
-    <script>
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const htmlElement = document.documentElement;
+    <!-- Back to Top Button -->
+    <a href="#home" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
-        // Check local storage or system preference on load
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            htmlElement.classList.add('dark');
-        } else {
-            htmlElement.classList.remove('dark');
-        }
-
-        // Toggle logic
-        themeToggleBtn.addEventListener('click', () => {
-            if (htmlElement.classList.contains('dark')) {
-                htmlElement.classList.remove('dark');
-                localStorage.theme = 'light';
-            } else {
-                htmlElement.classList.add('dark');
-                localStorage.theme = 'dark';
-            }
-        });
-    </script>
 </body>
 </html>
