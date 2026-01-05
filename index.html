@@ -58,29 +58,51 @@
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md transition-colors duration-300">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-blue-900 dark:text-blue-400 flex items-center">
-                <i class="fas fa-laptop-code mr-2"></i>
-                <span>Portfolio</span>
-            </div>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-6 font-medium text-gray-600 dark:text-gray-300">
-                <a href="#home" class="hover:text-blue-600 dark:hover:text-blue-400 transition">หน้าหลัก</a>
-                <a href="#vision" class="hover:text-blue-600 dark:hover:text-blue-400 transition">วิสัยทัศน์</a>
-                <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition">ทักษะ</a>
-                <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 transition">ผลงาน</a>
-                <a href="#certificates" class="hover:text-blue-600 dark:hover:text-blue-400 transition">เกียรติบัตร</a>
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="text-xl font-bold text-blue-900 dark:text-blue-400 flex items-center">
+                    <i class="fas fa-laptop-code mr-2"></i>
+                    <span>Portfolio</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 font-medium text-gray-600 dark:text-gray-300">
+                    <a href="#home" class="hover:text-blue-600 dark:hover:text-blue-400 transition">หน้าหลัก</a>
+                    <a href="#vision" class="hover:text-blue-600 dark:hover:text-blue-400 transition">วิสัยทัศน์</a>
+                    <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition">ทักษะ</a>
+                    <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 transition">ผลงาน</a>
+                    <a href="#certificates" class="hover:text-blue-600 dark:hover:text-blue-400 transition">เกียรติบัตร</a>
+                </div>
+
+                <!-- Right Side Actions -->
+                <div class="flex items-center space-x-3">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition focus:outline-none">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <!-- Contact Button (Desktop) -->
+                    <a href="#contact" class="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg text-sm hover:bg-blue-700 transition shadow-md">ติดต่อสอบถาม</a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
 
-            <div class="flex items-center space-x-3">
-                <!-- Theme Toggle Button -->
-                <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition focus:outline-none">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block"></i>
-                </button>
-                
-                <a href="#contact" class="hidden sm:block bg-blue-600 text-white px-5 py-2 rounded-lg text-sm hover:bg-blue-700 transition shadow-md">ติดต่อสอบถาม</a>
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="md:hidden mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-inner">
+                <div class="flex flex-col space-y-2 p-4 text-center font-medium text-gray-700 dark:text-gray-200">
+                    <a href="#home" class="mobile-link py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition">หน้าหลัก</a>
+                    <a href="#vision" class="mobile-link py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition">วิสัยทัศน์</a>
+                    <a href="#skills" class="mobile-link py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition">ทักษะ</a>
+                    <a href="#projects" class="mobile-link py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition">ผลงาน</a>
+                    <a href="#certificates" class="mobile-link py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition">เกียรติบัตร</a>
+                    <a href="#contact" class="mobile-link py-2 text-blue-600 dark:text-blue-400 font-bold">ติดต่อสอบถาม</a>
+                </div>
             </div>
         </div>
     </nav>
