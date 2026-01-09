@@ -625,7 +625,7 @@
             <!-- Modal Footer -->
             <div class="p-4 bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700 flex justify-between items-center">
                 <p class="text-xs text-slate-400">Click outside or 'X' to close</p>
-                <a href="#" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-2">
+                <a href="#" id="download-img" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-2">
                     <i class="fas fa-download"></i> Download Image
                 </a>
             </div>
@@ -684,11 +684,16 @@
         const modal = document.getElementById('cert-modal');
         const modalImg = document.getElementById('modal-img');
         const modalTitle = document.getElementById('modal-title');
-        
+        const downloadImg = document.getElementById('download-img');
+
         function openModal(imageSrc, title) {
             modalImg.src = imageSrc;
             modalTitle.innerHTML = `<i class="fas fa-award text-yellow-500"></i> ${title}`;
             
+             // --- Update Download Link Functionality ---
+            downloadImg.href = imageSrc; // Set the link to the image
+            downloadImg.download = `${title}.png`; // Suggest a filename for download
+
             // Show modal
             modal.classList.remove('hidden');
             // Small timeout to allow transition
