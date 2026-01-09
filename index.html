@@ -314,45 +314,140 @@
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-4 text-center text-blue-900 dark:text-blue-400">ผลงานเด่นที่เคยปฏิบัติ</h2>
             <p class="text-center text-gray-500 dark:text-gray-400 mb-12">ประสบการณ์จากการทำงานจริงและการทำโครงการพิเศษ</p>
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Project Card 1 -->
-                <div class="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition duration-300">
-                    <div class="h-56 bg-gray-200 dark:bg-gray-700 relative overflow-hidden flex items-center justify-center">
-                        <img src="images/project-network.jpg" alt="Smart Office Network" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder'); this.parentElement.innerHTML='<i class=\'fas fa-network-wired text-7xl text-gray-300 dark:text-gray-600\'></i>';">
-                        <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">Completed</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Project 1: Thailand Trust Mark -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-green-500/50 transition-all group shadow-lg hover:shadow-green-900/20">
+                    <div class="h-32 bg-gradient-to-br from-green-800 to-slate-800 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-certificate text-5xl text-white/20 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold mb-3 dark:text-gray-200">โครงการ Smart Office Network</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4">ปรับปรุงระบบโครงข่ายสื่อสารภายในสำนักงาน โดยการติดตั้ง VLAN เพื่อแยกการใช้งานระหว่างพนักงานและผู้มาติดต่อ เพื่อความปลอดภัยสูงสุด</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-[10px] px-2 py-1 rounded">Mikrotik</span>
-                            <span class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-[10px] px-2 py-1 rounded">VLAN Config</span>
-                            <span class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-[10px] px-2 py-1 rounded">Security</span>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-200 group-hover:text-green-400 transition-colors">Thailand Trust Mark</h3>
+                            <i class="fas fa-check-circle text-green-500 text-sm"></i>
                         </div>
-                        <div class="border-t dark:border-gray-700 pt-4">
-                            <p class="text-sm font-semibold text-green-600 dark:text-green-400"><i class="fas fa-check-circle mr-1"></i> ผลลัพธ์: ระบบมีความเสถียรขึ้น 40% และลดปัญหาการบุกรุกข้อมูล</p>
+                        <p class="text-xs text-slate-400 mb-4">ระบบรับรองมาตรฐานสินค้าไทย (T Mark)</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Government</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Certification</span>
                         </div>
-                    </div>
-                </div>
-                <!-- Project Card 2 -->
-                <div class="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition duration-300">
-                    <div class="h-56 bg-gray-200 dark:bg-gray-700 relative overflow-hidden flex items-center justify-center">
-                        <img src="images/project-webapp.jpg" alt="Inventory System" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder'); this.parentElement.innerHTML='<i class=\'fas fa-database text-7xl text-gray-300 dark:text-gray-600\'></i>';">
-                        <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">Completed</div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold mb-3 dark:text-gray-200">ระบบบริหารจัดการพัสดุดิจิทัล</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4">พัฒนา Web Application เพื่อใช้ในการเบิกจ่ายพัสดุภายในหน่วยงาน แทนระบบกระดาษเดิม เพื่อความรวดเร็วและตรวจสอบได้</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-[10px] px-2 py-1 rounded">PHP / MySQL</span>
-                            <span class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-[10px] px-2 py-1 rounded">Web App</span>
-                            <span class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-[10px] px-2 py-1 rounded">UX/UI</span>
-                        </div>
-                        <div class="border-t dark:border-gray-700 pt-4">
-                            <p class="text-sm font-semibold text-green-600 dark:text-green-400"><i class="fas fa-check-circle mr-1"></i> ผลลัพธ์: ลดเวลาการอนุมัติลง 50% และประหยัดกระดาษได้ 100%</p>
-                        </div>
+                        <a href="#" class="inline-flex items-center text-xs text-green-400 hover:text-green-300 gap-1 font-medium">
+                            Visit Site <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Project 2: Bangkok Gems & Jewelry Fair -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-purple-500/50 transition-all group shadow-lg hover:shadow-purple-900/20">
+                    <div class="h-32 bg-gradient-to-br from-purple-900 to-slate-800 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-gem text-5xl text-white/20 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-200 group-hover:text-purple-400 transition-colors">Bangkok Gems</h3>
+                            <i class="fas fa-star text-purple-500 text-sm"></i>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-4">Bangkok Gems & Jewelry Fair</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Event</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Exhibition</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-xs text-purple-400 hover:text-purple-300 gap-1 font-medium">
+                            Visit Site <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Thai Trade Fair -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-blue-500/50 transition-all group shadow-lg hover:shadow-blue-900/20">
+                    <div class="h-32 bg-gradient-to-br from-blue-900 to-slate-800 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-globe-asia text-5xl text-white/20 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-200 group-hover:text-blue-400 transition-colors">Thai Trade Fair</h3>
+                            <i class="fas fa-handshake text-blue-500 text-sm"></i>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-4">งานแสดงสินค้าและการเจรจาธุรกิจ</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Trade</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">B2B</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-xs text-blue-400 hover:text-blue-300 gap-1 font-medium">
+                            Visit Site <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: STYLE Bangkok -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-pink-500/50 transition-all group shadow-lg hover:shadow-pink-900/20">
+                    <div class="h-32 bg-gradient-to-br from-pink-900 to-slate-800 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-tshirt text-5xl text-white/20 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-200 group-hover:text-pink-400 transition-colors">STYLE Bangkok</h3>
+                            <i class="fas fa-heart text-pink-500 text-sm"></i>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-4">งานแสดงสินค้าไลฟ์สไตล์และแฟชั่น</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Lifestyle</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Fashion</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-xs text-pink-400 hover:text-pink-300 gap-1 font-medium">
+                            Visit Site <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5: CARE Project -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-orange-500/50 transition-all group shadow-lg hover:shadow-orange-900/20">
+                    <div class="h-32 bg-gradient-to-br from-orange-900 to-slate-800 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-hands-helping text-5xl text-white/20 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-200 group-hover:text-orange-400 transition-colors">DITP Care</h3>
+                            <i class="fas fa-headset text-orange-500 text-sm"></i>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-4">ระบบบริการและช่วยเหลือผู้ประกอบการ</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Service</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Support</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-xs text-orange-400 hover:text-orange-300 gap-1 font-medium">
+                            Visit Site <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 6: DITP Portal (Added) -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-sky-500/50 transition-all group shadow-lg hover:shadow-sky-900/20">
+                    <div class="h-32 bg-gradient-to-br from-sky-900 to-slate-800 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-landmark text-5xl text-white/20 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-200 group-hover:text-sky-400 transition-colors">DITP Portal</h3>
+                            <i class="fas fa-external-link-alt text-sky-500 text-sm"></i>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-4">เว็บไซต์กรมส่งเสริมการค้าระหว่างประเทศ</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Main Site</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300">Organization</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-xs text-sky-400 hover:text-sky-300 gap-1 font-medium">
+                            Visit Site <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
