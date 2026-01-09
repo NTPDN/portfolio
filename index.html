@@ -489,44 +489,10 @@
     <section id="certificates" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center text-blue-900 dark:text-blue-400">เกียรติบัตรและความภาคภูมิใจ</h2>
-            <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition border-l-4 border-blue-600 flex items-start space-x-4">
-                    <i class="fas fa-stamp text-blue-600 dark:text-blue-400 text-3xl mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-gray-800 dark:text-gray-200">หลักสูตรทักษะเอไอระดับพื้นฐาน (AI Basics)</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">บริษัท ไมโครซอฟท์ (ประเทศไทย) จำกัด</p>
-                        <p class="text-xs text-blue-600 dark:text-blue-300 mt-2">พ.ศ. 2568</p>
-                    </div>
-                </div>
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition border-l-4 border-blue-600 flex items-start space-x-4">
-                    <i class="fas fa-award text-blue-600 dark:text-blue-400 text-3xl mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-gray-800 dark:text-gray-200">Digital Literacy: ความฉลาดทางดิจิทัล</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">TDGA</p>
-                        <p class="text-xs text-blue-600 dark:text-blue-300 mt-2">พ.ศ. 2568</p>
-                    </div>
-                </div>
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition border-l-4 border-blue-600 flex items-start space-x-4">
-                    <i class="fas fa-user-shield text-blue-600 dark:text-blue-400 text-3xl mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-gray-800 dark:text-gray-200">ISO/IEC 29110 : Awareness</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">มาตรฐานสากลด้านความปลอดภัย</p>
-                        <p class="text-xs text-blue-600 dark:text-blue-300 mt-2">พ.ศ. 2568</p>
-                    </div>
-                </div>
-                 <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition border-l-4 border-blue-600 flex items-start space-x-4">
-                    <i class="fas fa-award text-blue-600 dark:text-blue-400 text-3xl mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-gray-800 dark:text-gray-200">Prompt Engineering</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">TDGA</p>
-                        <p class="text-xs text-blue-600 dark:text-blue-300 mt-2">พ.ศ. 2568</p>
-                    </div>
-                </div>
-            </div> -->
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                
                 <!-- Certificate 1: AI Basics -->
-                <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-cyan-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group">
+                <div onclick="openModal('https://placehold.co/800x600/eab308/ffffff?text=Gov+Digital+Tools+Certificate', 'หลักสูตรทักษะ AI ระดับพื้นฐาน')" class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-cyan-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group">
                     <div class="w-12 h-12 rounded-lg bg-cyan-100 dark:bg-cyan-900/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                         <i class="fas fa-robot text-cyan-600 dark:text-cyan-400 text-xl"></i>
                     </div>
@@ -540,7 +506,7 @@
                 </div>
 
                 <!-- Certificate 2: Digital Literacy -->
-                <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-green-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group">
+                <div onclick="openModal('https://placehold.co/800x600/eab308/ffffff?text=Gov+Digital+Tools+Certificate', 'Digital Literacy')" class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-green-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group">
                     <div class="w-12 h-12 rounded-lg bg-green-100 dark:bg-green-900/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                         <i class="fas fa-brain text-green-600 dark:text-green-400 text-xl"></i>
                     </div>
@@ -554,7 +520,7 @@
                 </div>
 
                 <!-- Certificate 3: ISO/IEC 29110 -->
-                <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-blue-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group">
+                <div onclick="openModal('https://placehold.co/800x600/eab308/ffffff?text=Gov+Digital+Tools+Certificate', 'ISO/IEC 29110')" class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-blue-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group">
                     <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                         <i class="fas fa-clipboard-check text-blue-600 dark:text-blue-400 text-xl"></i>
                     </div>
@@ -568,7 +534,7 @@
                 </div>
 
                 <!-- Certificate 4: Prompt Engineering -->
-                <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-orange-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group">
+                <div onclick="openModal('https://placehold.co/800x600/eab308/ffffff?text=Gov+Digital+Tools+Certificate', 'Prompt Engineering')" class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-orange-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group">
                     <div class="w-12 h-12 rounded-lg bg-orange-100 dark:bg-orange-900/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                         <i class="fas fa-comment-dots text-orange-600 dark:text-orange-400 text-xl"></i>
                     </div>
@@ -582,7 +548,7 @@
                 </div>
 
                 <!-- Certificate 5: Digital Understanding -->
-                <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-purple-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group">
+                <div onclick="openModal('https://placehold.co/800x600/eab308/ffffff?text=Gov+Digital+Tools+Certificate', 'Digital Technology')" class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-purple-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group">
                     <div class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                         <i class="fas fa-laptop-house text-purple-600 dark:text-purple-400 text-xl"></i>
                     </div>
@@ -596,7 +562,7 @@
                 </div>
 
                 <!-- Certificate 6: Gov Digital Tools -->
-                <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-yellow-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group">
+                <div onclick="openModal('https://placehold.co/800x600/eab308/ffffff?text=Gov+Digital+Tools+Certificate', 'Gov Digital Tools')" class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-700/30 hover:bg-yellow-50 dark:hover:bg-slate-700/60 transition-colors cursor-pointer group" >
                     <div class="w-12 h-12 rounded-lg bg-yellow-100 dark:bg-yellow-900/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                         <i class="fas fa-briefcase text-yellow-600 dark:text-yellow-400 text-xl"></i>
                     </div>
@@ -639,6 +605,33 @@
         </div>
     </section>
 
+    <div id="cert-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0" onclick="closeModal()">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <!-- Modal Header -->
+            <div class="p-4 border-b border-gray-200 dark:border-slate-700 flex justify-between items-center bg-gray-50 dark:bg-slate-900/50">
+                <h3 id="modal-title" class="text-lg font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                    <i class="fas fa-award text-yellow-500"></i> Certificate Preview
+                </h3>
+                <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-900/30 dark:hover:text-red-400 transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body (Image) -->
+            <div class="p-1 bg-gray-100 dark:bg-slate-900 flex items-center justify-center h-[60vh] md:h-[70vh]">
+                <img id="modal-img" src="" alt="Certificate" class="max-w-full max-h-full object-contain rounded shadow-lg">
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700 flex justify-between items-center">
+                <p class="text-xs text-slate-400">Click outside or 'X' to close</p>
+                <a href="#" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-2">
+                    <i class="fas fa-download"></i> Download Image
+                </a>
+            </div>
+        </div> 
+    </div>
+        
     <footer class="py-8 bg-gray-50 dark:bg-gray-900 text-gray-400 text-center border-t dark:border-gray-800 transition-colors duration-300">
         <p class="text-sm">&copy; 2025 ณัฐพงษ์ ดีน้อย | นักวิชาการคอมพิวเตอร์ </p>
     </footer>
@@ -684,6 +677,41 @@
             } else {
                 document.documentElement.classList.add('dark');
                 localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // --- Certificate Modal Logic ---
+        function openModal(imageSrc, title) {
+            modalImg.src = imageSrc;
+            modalTitle.innerHTML = `<i class="fas fa-award text-yellow-500"></i> ${title}`;
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            // Small timeout to allow transition
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-95');
+                modal.querySelector('div').classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            // Add fade out classes
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+            
+            // Wait for transition to finish before hiding
+            setTimeout(() => {                  
+                modal.classList.add('hidden');
+                modalImg.src = ''; // Clear source
+            }, 300);
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
             }
         });
     </script>
