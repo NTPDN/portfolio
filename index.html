@@ -681,6 +681,10 @@
         });
 
         // --- Certificate Modal Logic ---
+        const modal = document.getElementById('cert-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        
         function openModal(imageSrc, title) {
             modalImg.src = imageSrc;
             modalTitle.innerHTML = `<i class="fas fa-award text-yellow-500"></i> ${title}`;
